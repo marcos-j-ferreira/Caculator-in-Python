@@ -1,56 +1,55 @@
-class Caculator: 
+class Calculator:  
     
-    def soma(self, x:float = 0, y:float = 0) -> int:
+    def soma(self, x: float = 0, y: float = 0) -> float: 
         return x + y
     
-    def sub(self, x:float = 0, y:float = 0) -> float:
+    def sub(self, x: float = 0, y: float = 0) -> float:
         return x - y
     
-    def mult(self, x:float = 0, y:float = 0) -> float:
+    def mult(self, x: float = 0, y: float = 0) -> float:
         return x * y
     
-    def div(self, x:float = 0, y:float = 0) -> float:
-        if x != 0:
+    def div(self, x: float = 0, y: float = 0) -> float:
+        if y != 0:  
             return x / y
         else:
-            return "Error in Division"
+            return "Error: Division by zero"
 
 def options() -> None:
+    calc = Calculator()
+    menu: str = " -- Choose an option --\n 1 - Addition \n 2 - Subtraction\n 3 - Division \n 4 - Multiplication\n 5 - Exit"
+    choice: int = 0
 
-    cal = Caculator()
-    ope:str = " -- Chose a option --\n 1 - Soma \n 2 - Sub\n 3 - Div \n 4 - Mult\n 5 - exit"
-    a:int = 0
+    while choice < 5:  
+        print(menu)
+        choice = int(input())
+        result: float = 0
 
-    while a < 5:
+        if choice == 1:
+            x: float = float(input("Enter a number: "))
+            y: float = float(input("Enter another number: "))
+            result = calc.soma(x, y)
 
-        print(ope)
-        a = int(input())
-        result:float = 0
+            print(f"The addition of both numbers is {result} \n")
+        elif choice == 2:
+            x: float = float(input("Enter a number: "))
+            y: float = float(input("Enter another number: "))
+            result = calc.sub(x, y)
 
-        if a == 1:
-            x:float = float(input("Enter a number: "))
-            y:float = float(input("Enter other number: "))
-            result = cal.soma(x,y)
+            print(f"The subtraction of both numbers is {result} \n")
+        elif choice == 3:
+            x: float = float(input("Enter a number: "))
+            y: float = float(input("Enter another number: "))
+            result = calc.div(x, y)
 
-            print(f"A soma de ambos os números é {result} \n")
-        elif a == 2:
-            x:float = float(input("Enter a number: "))
-            y:float = float(input("Enter other number: "))
-            result = cal.sub(x,y)
+            print(f"The division of both numbers is {result} \n")
+        elif choice == 4:
+            x: float = float(input("Enter a number: "))
+            y: float = float(input("Enter another number: "))
+            result = calc.mult(x, y)
 
-            print(f"A subtração de ambos os números é: {result} \n")
-        elif a == 3:
-            x:float = float(input("Enter a number: "))
-            y:float = float(input("Enter other number: "))
-            result = cal.div(x,y)
-
-            print(f"A multiplicação de ambos os números é {result} \n")
-        elif a == 4:
-            x:float = float(input("Enter a number: "))
-            y:float = float(input("Enter other number: "))
-            result = cal.mult(x,y)
-
-            print(f"A divisão de ambos os números é {result} \n")
+            print(f"The multiplication of both numbers is {result} \n")
         else:
-            print("Digite um número válido")
+            print("Please enter a valid number")
+
 options()
